@@ -17,5 +17,4 @@ def get_current_ask():
     data = get_response(TICKER_URL)
     price = data['ask']
     return Decimal(price)
-	
-print get_current_price()
+
