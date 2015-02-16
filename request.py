@@ -1,9 +1,5 @@
 from exchanges import helpers
-from exchanges import bitfinex
-from exchanges import bitstamp
-from exchanges import okcoin
-from exchanges import cex
-from exchanges import btce
+from exchanges import hitbtc
 from time import sleep
 from datetime import datetime
 import csv
@@ -11,7 +7,7 @@ import csv
 
 # PREPARE OUTPUT FILE
 
-# tell computer where to put CSV
+# tell computer where to put CSV and to name it
 filename = datetime.now().strftime("%Y-%m-%d--%H-%M-%S")
 outfile_path='csvoutput'+filename+'.csv'
 
@@ -19,7 +15,24 @@ outfile_path='csvoutput'+filename+'.csv'
 writer = csv.writer(open(outfile_path, 'w'))
 
 #create a list with headings for our columns
-headers = ['datetime', 'bitstamp_price', 'bitstamp_bid', 'bitstamp_ask', 'bitfinex_price', 'bitfinex_bid', 'bitfinex_ask', 'okcoin_price', 'okcoin_bid', 'okcoin_ask', 'cex_price', 'cex_bid', 'cex_ask', 'btc-e_price', 'btc-e_bid', 'btc_ask']
+headers = ['datetime','hitbtc_BCNBTC_bid','hitbtc_BCNBTC_ask',
+'hitbtc_BTCEUR_bid','hitbtc_BTCEUR_ask',
+'hitbtc_BTCUSD_bid','hitbtc_BTCUSD_ask',
+'hitbtc_DOGEBTC_bid','hitbtc_DOGEBTC_ask',
+'hitbtc_EURGBP_bid','hitbtc_EURGBP_ask',
+'hitbtc_EURUSD_bid','hitbtc_EURUSD_ask',
+'hitbtc_FCNBTC_bid','hitbtc_FCNBTC_ask',
+'hitbtc_GBPUSD_bid','hitbtc_GBPUSD_ask',
+'hitbtc_LTCBTC_bid','hitbtc_LTCBTC_ask',
+'hitbtc_LTCEUR_bid','hitbtc_LTCEUR_ask',
+'hitbtc_LTCUSD_bid','hitbtc_LTCUSD_ask',
+'hitbtc_NXTBTC_bid','hitbtc_NXTBTC_ask',
+'hitbtc_QCNBTC_bid','hitbtc_QCNBTC_ask',
+'hitbtc_XDNBTC_bid','hitbtc_XDNBTC_ask',
+'hitbtc_XMRBTC_bid','hitbtc_XMRBTC_ask',
+
+
+]
 
 #write the row of headings to our CSV file
 writer.writerow(headers)
@@ -42,25 +55,39 @@ while i < 200:
   
   #add every 'cell' to the row list, identifying the item just like an index in a list
   row.append(datetime.now())
-  row.append(bitstamp.get_current_price())
-  row.append(bitstamp.get_current_bid())
-  row.append(bitstamp.get_current_ask())
-  row.append(bitfinex.get_current_price())
-  row.append(bitfinex.get_current_bid())
-  row.append(bitfinex.get_current_ask())
-  row.append(okcoin.get_current_price())	
-  row.append(okcoin.get_current_bid())
-  row.append(okcoin.get_current_ask())
-  row.append(cex.get_current_price())	
-  row.append(cex.get_current_bid())
-  row.append(cex.get_current_ask())
-  row.append(btce.get_current_price())	
-  row.append(btce.get_current_ask())
-  row.append(btce.get_current_bid())
-  
-  
-  
-  
+ 
+ # HITBTC
+  row.append(hitbtc.get_current_bid_BCNBTC())
+  row.append(hitbtc.get_current_ask_BCNBTC())
+  row.append(hitbtc.get_current_bid_BTCEUR())	
+  row.append(hitbtc.get_current_ask_BTCEUR())
+  row.append(hitbtc.get_current_bid_BTCUSD())	
+  row.append(hitbtc.get_current_ask_BTCUSD())
+  row.append(hitbtc.get_current_bid_DOGEBTC())	
+  row.append(hitbtc.get_current_ask_DOGEBTC())
+  row.append(hitbtc.get_current_bid_EURGBP())	
+  row.append(hitbtc.get_current_ask_EURGBP())
+  row.append(hitbtc.get_current_bid_EURUSD())	
+  row.append(hitbtc.get_current_ask_EURUSD())
+  row.append(hitbtc.get_current_bid_FCNBTC())	
+  row.append(hitbtc.get_current_ask_FCNBTC())
+  row.append(hitbtc.get_current_bid_GBPUSD())	
+  row.append(hitbtc.get_current_ask_GBPUSD())
+  row.append(hitbtc.get_current_bid_LTCBTC())	
+  row.append(hitbtc.get_current_ask_LTCBTC())
+  row.append(hitbtc.get_current_bid_LTCEUR())	
+  row.append(hitbtc.get_current_ask_LTCEUR())
+  row.append(hitbtc.get_current_bid_LTCUSD())	
+  row.append(hitbtc.get_current_ask_LTCUSD())
+  row.append(hitbtc.get_current_bid_NXTBTC())	
+  row.append(hitbtc.get_current_ask_NXTBTC())
+  row.append(hitbtc.get_current_bid_QCNBTC())	
+  row.append(hitbtc.get_current_ask_QCNBTC())
+  row.append(hitbtc.get_current_bid_XDNBTC())	
+  row.append(hitbtc.get_current_ask_XDNBTC())
+  row.append(hitbtc.get_current_bid_XMRBTC())	
+  row.append(hitbtc.get_current_ask_XMRBTC())
+
   
   #once you have all the cells in there, write the row to your csv
   writer.writerow(row)
