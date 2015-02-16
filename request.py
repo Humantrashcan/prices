@@ -5,19 +5,21 @@ from exchanges import okcoin
 from exchanges import cex
 from exchanges import btce
 from time import sleep
+from datetime import datetime
 import csv
 
 
 # PREPARE OUTPUT FILE
 
 # tell computer where to put CSV
-outfile_path='csvoutput.csv'
+filename = datetime.now().strftime("%Y-%m-%d--%H-%M-%S")
+outfile_path='csvoutput'+filename+'.csv'
 
 # open it up, the w means we will write to it
 writer = csv.writer(open(outfile_path, 'w'))
 
 #create a list with headings for our columns
-headers = ['bitstamp_price', 'bitstamp_bid', 'bitstamp_ask', 'bitfinex_price', 'bitfinex_bid', 'bitfinex_ask', 'okcoin_price', 'okcoin_bid', 'okcoin_ask', 'cex_price', 'cex_bid', 'cex_ask', 'btc-e_price', 'btc-e_bid', 'btc_ask']
+headers = ['datetime', 'bitstamp_price', 'bitstamp_bid', 'bitstamp_ask', 'bitfinex_price', 'bitfinex_bid', 'bitfinex_ask', 'okcoin_price', 'okcoin_bid', 'okcoin_ask', 'cex_price', 'cex_bid', 'cex_ask', 'btc-e_price', 'btc-e_bid', 'btc_ask']
 
 #write the row of headings to our CSV file
 writer.writerow(headers)
@@ -30,7 +32,7 @@ writer.writerow(headers)
 i = 1
 
 #loop through pages of JSON returned, 100 is an arbitrary number
-while i < 100:
+while i < 200:
   #print out what number loop we are on, which will make it easier to track down problems when they appear
   print i
 
@@ -39,6 +41,7 @@ while i < 100:
   row = []
   
   #add every 'cell' to the row list, identifying the item just like an index in a list
+  row.append(datetime.now())
   row.append(bitstamp.get_current_price())
   row.append(bitstamp.get_current_bid())
   row.append(bitstamp.get_current_ask())
@@ -52,8 +55,9 @@ while i < 100:
   row.append(cex.get_current_bid())
   row.append(cex.get_current_ask())
   row.append(btce.get_current_price())	
+  row.append(btce.get_current_ask())
   row.append(btce.get_current_bid())
-  row.append(btce.get_current_ask())  
+  
   
   
   
