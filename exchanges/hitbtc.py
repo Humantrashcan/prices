@@ -7,7 +7,7 @@ TICKER_URL = 'https://api.hitbtc.com/api/1/public/ticker'
 def get_current_bid_BCNBTC():
     data = get_response(TICKER_URL)
     price = data['BCNBTC']['bid']
-    return (price)
+    return Decimal(price)
 
 def get_current_ask_BCNBTC():
     data = get_response(TICKER_URL)
@@ -17,7 +17,7 @@ def get_current_ask_BCNBTC():
 def get_current_bid_BTCEUR():
     data = get_response(TICKER_URL)
     price = data['BTCEUR']['bid']
-    return (price)
+    return Decimal(price)
 
 def get_current_ask_BTCEUR():
     data = get_response(TICKER_URL)
@@ -27,7 +27,7 @@ def get_current_ask_BTCEUR():
 def get_current_bid_BTCUSD():
     data = get_response(TICKER_URL)
     price = data['BTCUSD']['bid']
-    return (price)
+    return Decimal(price)
 
 def get_current_ask_BTCUSD():
     data = get_response(TICKER_URL)
@@ -37,7 +37,7 @@ def get_current_ask_BTCUSD():
 def get_current_bid_DOGEBTC():
     data = get_response(TICKER_URL)
     price = data['DOGEBTC']['bid']
-    return (price)
+    return Decimal(price)
 
 def get_current_ask_DOGEBTC():
     data = get_response(TICKER_URL)
@@ -47,7 +47,7 @@ def get_current_ask_DOGEBTC():
 def get_current_bid_EURGBP():
     data = get_response(TICKER_URL)
     price = data['EURGBP']['bid']
-    return (price)
+    return Decimal(price)
 
 def get_current_ask_EURGBP():
     data = get_response(TICKER_URL)
@@ -57,7 +57,7 @@ def get_current_ask_EURGBP():
 def get_current_bid_EURUSD():
     data = get_response(TICKER_URL)
     price = data['EURUSD']['bid']
-    return (price)
+    return Decimal(price)
 
 def get_current_ask_EURUSD():
     data = get_response(TICKER_URL)
@@ -67,7 +67,7 @@ def get_current_ask_EURUSD():
 def get_current_bid_FCNBTC():
     data = get_response(TICKER_URL)
     price = data['FCNBTC']['bid']
-    return (price)
+    return Decimal(price)
 
 def get_current_ask_FCNBTC():
     data = get_response(TICKER_URL)
@@ -77,7 +77,7 @@ def get_current_ask_FCNBTC():
 def get_current_bid_GBPUSD():
     data = get_response(TICKER_URL)
     price = data['GBPUSD']['bid']
-    return (price)
+    return Decimal(price)
 
 def get_current_ask_GBPUSD():
     data = get_response(TICKER_URL)
@@ -87,7 +87,7 @@ def get_current_ask_GBPUSD():
 def get_current_bid_LTCBTC():
     data = get_response(TICKER_URL)
     price = data['LTCBTC']['bid']
-    return (price)
+    return Decimal(price)
 
 def get_current_ask_LTCBTC():
     data = get_response(TICKER_URL)
@@ -97,7 +97,7 @@ def get_current_ask_LTCBTC():
 def get_current_bid_LTCEUR():
     data = get_response(TICKER_URL)
     price = data['LTCEUR']['bid']
-    return (price)
+    return Decimal(price)
 
 def get_current_ask_LTCEUR():
     data = get_response(TICKER_URL)
@@ -107,7 +107,7 @@ def get_current_ask_LTCEUR():
 def get_current_bid_LTCUSD():
     data = get_response(TICKER_URL)
     price = data['LTCUSD']['bid']
-    return (price)
+    return Decimal(price)
 
 def get_current_ask_LTCUSD():
     data = get_response(TICKER_URL)
@@ -117,7 +117,7 @@ def get_current_ask_LTCUSD():
 def get_current_bid_NXTBTC():
     data = get_response(TICKER_URL)
     price = data['NXTBTC']['bid']
-    return (price)
+    return Decimal(price)
 
 def get_current_ask_NXTBTC():
     data = get_response(TICKER_URL)
@@ -127,7 +127,7 @@ def get_current_ask_NXTBTC():
 def get_current_bid_QCNBTC():
     data = get_response(TICKER_URL)
     price = data['QCNBTC']['bid']
-    return (price)
+    return Decimal(price)
 
 def get_current_ask_QCNBTC():
     data = get_response(TICKER_URL)
@@ -137,7 +137,7 @@ def get_current_ask_QCNBTC():
 def get_current_bid_XDNBTC():
     data = get_response(TICKER_URL)
     price = data['XDNBTC']['bid']
-    return (price)
+    return Decimal(price)
 
 def get_current_ask_XDNBTC():
     data = get_response(TICKER_URL)
@@ -147,7 +147,7 @@ def get_current_ask_XDNBTC():
 def get_current_bid_XMRBTC():
     data = get_response(TICKER_URL)
     price = data['XMRBTC']['bid']
-    return (price)
+    return Decimal(price)
 
 def get_current_ask_XMRBTC():
     data = get_response(TICKER_URL)
