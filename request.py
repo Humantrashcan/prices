@@ -1,6 +1,7 @@
 from exchanges import helpers
 from exchanges import hitbtc
 from exchanges import kraken
+from exchanges import opportunity_kraken
 import opportunity
 from time import sleep
 from datetime import datetime
@@ -33,13 +34,13 @@ headers = ['datetime','hitbtc_BCNBTC_bid','hitbtc_BCNBTC_ask',
 'hitbtc_XDNBTC_bid','hitbtc_XDNBTC_ask',
 'hitbtc_XMRBTC_bid','hitbtc_XMRBTC_ask',
 'opportunity_1',
-'opportunity_2'
+'opportunity_2',
 'kraken_LTCEUR_bid','kraken_LTCEUR_ask',
 'kraken_LTCUSD_bid','kraken_LTCUSD_ask',
 'kraken_XBTEUR_bid','kraken_XBTEUR_ask',
 'kraken_XBTLTC_bid','kraken_XBTLTC_ask',
 'kraken_XBTUSD_bid','kraken_XBTUSD_ask',
-
+'kraken_opportunity_1'
 ]
 
 #write the row of headings to our CSV file
@@ -109,8 +110,9 @@ while i < 200:
   row.append(kraken.get_current_ask_XBTLTC())
   row.append(kraken.get_current_bid_XBTUSD())	
   row.append(kraken.get_current_ask_XBTUSD())
-
-  
+  #kraken opportunity
+  row.append(opportunity_kraken.opportunity_1())
+  row.append(opportunity_kraken.opportunity_2())
   #once you have all the cells in there, write the row to your csv
   writer.writerow(row)
    

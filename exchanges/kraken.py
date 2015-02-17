@@ -17,7 +17,7 @@ def get_current_ask_LTCEUR():
 def get_current_bid_XBTEUR():
     data = get_response(TICKER_URL)
     price = data['result']['XXBTZEUR']['b'][0]
-    return (price)
+    return Decimal(price)
 
 def get_current_ask_XBTEUR():
     data = get_response(TICKER_URL)
@@ -27,7 +27,7 @@ def get_current_ask_XBTEUR():
 def get_current_bid_XBTUSD():
     data = get_response(TICKER_URL)
     price = data['result']['XXBTZUSD']['b'][0]
-    return (price)
+    return Decimal(price)
 
 def get_current_ask_XBTUSD():
     data = get_response(TICKER_URL)
@@ -37,7 +37,7 @@ def get_current_ask_XBTUSD():
 def get_current_bid_LTCUSD():
     data = get_response(TICKER_URL)
     price = data['result']['XLTCZUSD']['b'][0]
-    return (price)
+    return Decimal(price)
 
 def get_current_ask_LTCUSD():
     data = get_response(TICKER_URL)
@@ -47,7 +47,7 @@ def get_current_ask_LTCUSD():
 def get_current_bid_XBTLTC():
     data = get_response(TICKER_URL)
     price = data['result']['XXBTXLTC']['b'][0]
-    return (price)
+    return Decimal(price)
 
 def get_current_ask_XBTLTC():
     data = get_response(TICKER_URL)
