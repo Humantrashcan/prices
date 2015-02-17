@@ -1,5 +1,7 @@
 from exchanges import helpers
 from exchanges import hitbtc
+from exchanges import kraken
+import opportunity
 from time import sleep
 from datetime import datetime
 import csv
@@ -30,7 +32,13 @@ headers = ['datetime','hitbtc_BCNBTC_bid','hitbtc_BCNBTC_ask',
 'hitbtc_QCNBTC_bid','hitbtc_QCNBTC_ask',
 'hitbtc_XDNBTC_bid','hitbtc_XDNBTC_ask',
 'hitbtc_XMRBTC_bid','hitbtc_XMRBTC_ask',
-
+'opportunity_1',
+'opportunity_2'
+'kraken_LTCEUR_bid','kraken_LTCEUR_ask',
+'kraken_LTCUSD_bid','kraken_LTCUSD_ask',
+'kraken_XBTEUR_bid','kraken_XBTEUR_ask',
+'kraken_XBTLTC_bid','kraken_XBTLTC_ask',
+'kraken_XBTUSD_bid','kraken_XBTUSD_ask',
 
 ]
 
@@ -87,11 +95,25 @@ while i < 200:
   row.append(hitbtc.get_current_ask_XDNBTC())
   row.append(hitbtc.get_current_bid_XMRBTC())	
   row.append(hitbtc.get_current_ask_XMRBTC())
+  #check whether opportunity exists
+  row.append(opportunity.opportunity_1())
+  row.append(opportunity.opportunity_2())
+  #kraken watch
+  row.append(kraken.get_current_bid_LTCEUR())	
+  row.append(kraken.get_current_ask_LTCEUR())
+  row.append(kraken.get_current_bid_LTCUSD())	
+  row.append(kraken.get_current_ask_LTCUSD())
+  row.append(kraken.get_current_bid_XBTEUR())	
+  row.append(kraken.get_current_ask_XBTEUR())
+  row.append(kraken.get_current_bid_XBTLTC())	
+  row.append(kraken.get_current_ask_XBTLTC())
+  row.append(kraken.get_current_bid_XBTUSD())	
+  row.append(kraken.get_current_ask_XBTUSD())
 
   
   #once you have all the cells in there, write the row to your csv
   writer.writerow(row)
-  
+   
   #increment our loop counter, now we're on the next time through the loop
   i = i + 1
   #tell Python to rest for 5 secs, so we don't exceed our rate limit
